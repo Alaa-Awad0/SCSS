@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+$main-color: rgb(5, 150, 105);
+$second-color: #F29724;
+$bg-color: #F4F2EE;
+
+body {
+    background-color: $bg-color;
+    color: $main-color;
+    font-family: cursive;
+}
