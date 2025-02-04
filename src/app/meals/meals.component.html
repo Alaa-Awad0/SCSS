@@ -1,4 +1,4 @@
-<button (click)="open()" class="">
+<button (click)="open()" class="menu-button">
   <svg
     class="w-6 h-6"
     aria-hidden="true"
@@ -14,81 +14,83 @@
   </svg>
 </button>
 
-<nav class="px-3 h-100" [class.d-none]="!isVisible" (click)="closeModal($event, img )">
-    <div class="nav-box">
-        <div class="img-container">
-            <img #img src="/images/logo.png" alt="" class="w-100" />
-          </div>
-          <ul class="nav flex-column">
-            <li>
-              <a class="nav-link"
-                ><svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M445.588 56l-.026 384.352c6.881 11.323 14 15.677 19.97 15.648 5.924-.028 12.967-4.434 19.714-15.418L466.82 244.27l-.215-2.391 1.475-1.906c21.174-27.169 28.573-74.108 22.533-113.81-3.02-19.852-9.342-37.82-18.195-50.522-7.424-10.652-16.28-17.447-26.828-19.641h-.002zm-372.375.004l-.016 67.127-12.56-.016V56.008H46.332l.002 67.11H33.756v-67.11h-14.57v103.228c-.001 11.417 6.23 17.748 16.04 21.662l4.06 1.622-.09 4.37c-2 84.57-3.977 169.139-5.962 253.708C40.074 451.79 47.1 456.028 52.95 456c5.85-.028 12.87-4.377 19.623-15.432-2.315-84.547-4.63-169.096-6.941-253.644l-.12-4.4 4.073-1.606c10.324-4.106 17.039-11.074 17.039-21.676V56.004h-13.41zM256 95A161 161 0 0 0 95 256a161 161 0 0 0 161 161 161 161 0 0 0 161-161A161 161 0 0 0 256 95z"
-                  ></path>
-                </svg>
-                Meals</a
-              >
-            </li>
-          </ul>
-    </div>
-  </nav>
-  
-
-<div class="container">
-  <h1>Learn, Cook, Eat Your Food</h1>
-  <div class="category-buttons">
-    <button
-      (click)="updateMealsByCategory('All')"
-      [class.active]="selectedCategory === 'All'"
-    >
-      All
-    </button>
-    <button
-      *ngFor="let category of categories"
-      (click)="updateMealsByCategory(category.strCategory)"
-      [class.active]="selectedCategory === category.strCategory"
-    >
-      <p>{{ category.strCategory }}</p>
-    </button>
-    <select name="cars" (change)="updateOption($event)">
-      <option value="Beef">Beef</option>
-      <option value="Breakfast">Breakfast</option>
-      <option value="Chicken">Chicken</option>
-      <option value="Dessert">Dessert</option>
-      <option value="Goat">Goat</option>
-      <option value="Lamb">Lamb</option>
-      <option value="Miscellaneous">Miscellaneous</option>
-      <option value="Pasta">Pasta</option>
-      <option value="Pork">Pork</option>
-      <option value="Seafood">Seafood</option>
-      <option value="Side">Side</option>
-      <option value="Starter">Starter</option>
-      <option value="Vegan">Vegan</option>
-      <option value="Vegetarian">Vegetarian</option>
-    </select>
-  </div>
-
-  <div class="row">
-    @for (meal of meals; track $index) {
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img
-          class="card-img-top"
-          [src]="meal.strMealThumb"
-          [alt]="meal.strMeal"
-        />
-        <div class="card-body d-flex flex-column">
-          <h4 class="card-title">{{ meal.strMeal }}</h4>
+<div class="d-md-flex">
+    <nav class="px-3 h-100" [class.d-none]="!isVisible" (click)="closeModal($event, img )">
+        <div class="nav-box">
+            <div class="img-container">
+                <img #img src="/images/logo.png" alt="" class="w-100" />
+              </div>
+              <ul class="nav flex-column">
+                <li>
+                  <a class="nav-link"
+                    ><svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M445.588 56l-.026 384.352c6.881 11.323 14 15.677 19.97 15.648 5.924-.028 12.967-4.434 19.714-15.418L466.82 244.27l-.215-2.391 1.475-1.906c21.174-27.169 28.573-74.108 22.533-113.81-3.02-19.852-9.342-37.82-18.195-50.522-7.424-10.652-16.28-17.447-26.828-19.641h-.002zm-372.375.004l-.016 67.127-12.56-.016V56.008H46.332l.002 67.11H33.756v-67.11h-14.57v103.228c-.001 11.417 6.23 17.748 16.04 21.662l4.06 1.622-.09 4.37c-2 84.57-3.977 169.139-5.962 253.708C40.074 451.79 47.1 456.028 52.95 456c5.85-.028 12.87-4.377 19.623-15.432-2.315-84.547-4.63-169.096-6.941-253.644l-.12-4.4 4.073-1.606c10.324-4.106 17.039-11.074 17.039-21.676V56.004h-13.41zM256 95A161 161 0 0 0 95 256a161 161 0 0 0 161 161 161 161 0 0 0 161-161A161 161 0 0 0 256 95z"
+                      ></path>
+                    </svg>
+                    Meals</a
+                  >
+                </li>
+              </ul>
         </div>
+      </nav>
+      
+    
+    <div class="container">
+      <h1>Learn, Cook, Eat Your Food</h1>
+      <div class="category-buttons d-none d-md-block">
+        <button
+          (click)="updateMealsByCategory('All')"
+          [class.active]="selectedCategory === 'All'"
+        >
+          All
+        </button>
+        <button
+          *ngFor="let category of categories"
+          (click)="updateMealsByCategory(category.strCategory)"
+          [class.active]="selectedCategory === category.strCategory"
+        >
+          <p>{{ category.strCategory }}</p>
+        </button>
+        <select name="cars" (change)="updateOption($event)">
+          <option value="Beef">Beef</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Chicken">Chicken</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Goat">Goat</option>
+          <option value="Lamb">Lamb</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+          <option value="Pasta">Pasta</option>
+          <option value="Pork">Pork</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Side">Side</option>
+          <option value="Starter">Starter</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Vegetarian">Vegetarian</option>
+        </select>
+      </div>
+    
+      <div class="row gy-5">
+        @for (meal of meals; track $index) {
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img
+              class="card-img-top"
+              [src]="meal.strMealThumb"
+              [alt]="meal.strMeal"
+            />
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-title">{{ meal.strMeal }}</h4>
+            </div>
+          </div>
+        </div>
+        }
       </div>
     </div>
-    }
-  </div>
 </div>

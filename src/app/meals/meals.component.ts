@@ -1,12 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MealsService } from '../meals.service';
 import { IMeal } from '../imeal';
-import { NgFor, NgIf } from '@angular/common';
-import { NavbarComponent } from "../navbar/navbar.component";
+import { NgFor} from '@angular/common';
 
 @Component({
   selector: 'app-meals',
-  imports: [NgFor, NgIf, NavbarComponent],
+  imports: [NgFor],
   templateUrl: './meals.component.html',
   styleUrl: './meals.component.scss',
 })

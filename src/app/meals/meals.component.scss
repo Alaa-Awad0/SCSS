@@ -88,6 +88,8 @@ button.active {
   }
 
 
+
+
   nav {
     position: fixed;
     inset: 0;
@@ -98,6 +100,24 @@ button.active {
       background-color: $bg-color; 
       width: 300px !important;
   }
+  }
+
+
+  @media screen and (min-width: 762px) {
+    .menu-button {
+      display: none !important;
+      
+    }
+    nav {
+      position: static;
+      display: inline-block !important;
+      background-color: #F9FAFB; 
+      .nav-box {
+        width: 300px !important;
+        background-color: transparent;
+    }
+    }
+    
   }
   
   
