@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { MealsService } from '../meals.service';
 import { IMeal } from '../imeal';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-meals',
@@ -16,17 +15,24 @@ export class MealsComponent implements OnInit {
   areas: string[] = [];
   selectedCategory: string = 'All';
   isVisible: boolean = false;
-idMeal: any;
+  isLoading: boolean = true; // تحديد اللودر عند تحميل البيانات لأول مرة
+  idMeal: any;
 
 
-  constructor(private mealsService: MealsService, private router: Router) {}
+  constructor(private mealsService: MealsService) {}
 
   ngOnInit(): void {
     this.mealsService.getCategories().subscribe({
       next: (res) => {
+        setTimeout(() => {
           this.categories = res.categories;
+          this.isLoading = false; 
+        }, 1500);
       },
-      error: (err) => console.error('Error fetching categories', err),
+      error: (err) => {
+        console.error('Error fetching categories', err),
+        this.isLoading = false;
+      }
     });
 
     this.fetchAllMeals();
@@ -35,20 +41,20 @@ idMeal: any;
   fetchAllMeals(): void {
     this.mealsService.getAllMeals().subscribe({
       next: (res) => {
-
-          this.meals = res.meals;
-          
+        setTimeout(() => {
+          this.meals = res.meals; // تصحيح الخطأ هنا
+          this.isLoading = false;
+        }, 1500);
       },
       error: (err) => {
-        console.error('Error fetching all meals', err);
-
-      },
+        console.error('Error fetching categories', err),
+        this.isLoading = false;
+      }
     });
   }
 
   updateMealsByCategory(category: string): void {
     this.selectedCategory = category;
-    this.router.navigate(['/categories', category]);
 
     if (category === 'All') {
       this.fetchAllMeals();
@@ -57,7 +63,10 @@ idMeal: any;
         next: (res) => {
           this.meals = res.meals;
         },
-        error: (err) => console.error('Error fetching meals for category', err),
+        error: (err) => {
+          console.error('Error fetching categories', err),
+          this.isLoading = false;
+        }
       });
     }
   }
