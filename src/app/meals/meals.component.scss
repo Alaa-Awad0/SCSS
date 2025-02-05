@@ -47,7 +47,7 @@ body {
     border-radius: 0.5rem;
     background-color: #fff;
     font-size: 0.875rem;
-    margin-bottom: 1rem;
+    margin-bottom: 6rem;
   }
 
   .category-buttons {
@@ -87,14 +87,27 @@ body {
       transform: scale(1.1);
     }
   }
+
   .img-container {
+    width: 65%;
     position: relative;
-    top: -7%;
+    top: -10%;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
       drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     transition: transform 0.6s ease-in-out;
   }
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgb(14, 174, 123);
+
+  svg {
+    margin-right: 7px;
+  }
+}
+
   &:hover {
     box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.3);
     transform: scale(1.05);

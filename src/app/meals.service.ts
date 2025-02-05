@@ -21,4 +21,5 @@ export class MealsService {
   getAllMeals(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/search.php?s=`);
   }
+
 }

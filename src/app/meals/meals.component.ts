@@ -13,6 +13,7 @@ import { NavbarComponent } from "../navbar/navbar.component";
 export class MealsComponent implements OnInit {
   categories: any[] = [];
   meals: IMeal[] = [];
+  areas: string[] = [];
   selectedCategory: string = 'All';
   isVisible: boolean = false;
 
