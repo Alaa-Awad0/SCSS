@@ -9,7 +9,7 @@ export const routes: Routes = [
 
 
   { path: '', redirectTo: '/categories/All', pathMatch: 'full' },
-  { path: 'categories/:category', component: MealsComponent },
+  { path: 'categories', component: MealsComponent },
  { path: '**', component: NotFoundComponent, title: 'Not Found'} 
 
 ];
