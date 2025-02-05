@@ -23,12 +23,12 @@ nav {
       transform: scale(1.05);
     }
 
-      .nav-link {
-        color: #000;
-        svg {
-          width: 18px !important;
-        }
+    .nav-link {
+      color: #000;
+      svg {
+        width: 18px !important;
       }
+    }
   }
 
   li:first-child {
@@ -37,11 +37,12 @@ nav {
     box-shadow: 0 10px 15px -3px #fdba74, 0 4px 6px -4px #fdba74;
 
     .nav-link {
-        color: $bg-color-2;
-        svg {
-          width: 18px !important;
-        }
+      color: $bg-color-2;
+      font-weight: bold !important;
+      svg {
+        width: 18px !important;
       }
+    }
   }
 }
 
