@@ -8,7 +8,7 @@ export const routes: Routes = [
   // { path: '**', component: NotFoundComponent,, pathMatch: 'full' },
 
 
-  { path: '', redirectTo: '/categories/All', pathMatch: 'full' },
+  { path: '', redirectTo: 'categories', pathMatch: 'full' },
   { path: 'categories', component: MealsComponent },
  { path: '**', component: NotFoundComponent, title: 'Not Found'} 
 
