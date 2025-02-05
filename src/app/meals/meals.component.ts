@@ -2,10 +2,11 @@ import { Component, OnInit, inject } from '@angular/core';
 import { MealsService } from '../meals.service';
 import { IMeal } from '../imeal';
 import { NgFor} from '@angular/common';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-meals',
-  imports: [NgFor],
+  imports: [NgFor, NavbarComponent],
   templateUrl: './meals.component.html',
   styleUrl: './meals.component.scss',
 })
@@ -68,15 +69,17 @@ export class MealsComponent implements OnInit {
     this.updateMealsByCategory(category); 
   }
   
-  open(){
+  openNav(): void {
     this.isVisible = true;
   }
 
-  closeModal(e:MouseEvent, img:HTMLImageElement): void {
-      if (e.target !== img) {
-     this.isVisible = false;
-    }
-    }
+  updateVisibility(value: boolean): void {
+    this.isVisible = value; 
+  }
+
+  closeNav(): void {
+      this.isVisible = false;
+  }
 
   
 }

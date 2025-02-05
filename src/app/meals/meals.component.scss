@@ -1,123 +1,104 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 $main-color: rgb(5, 150, 105);
-$second-color: #F29724;
-$bg-color: #F4F2EE;
+$second-color: #f29724;
+$bg-color: #f4f2ee;
 
 body {
-    background-color: $bg-color;
-    color: $main-color;
-    font-family: cursive;
+  background-color: $bg-color;
+  color: $main-color;
+  font-family: cursive;
 }
 
-button {
-    font-size: .875rem;
-    line-height: 1.25rem;
-    background-color: transparent;
-    margin: .5rem 0 0 .75rem;
-    border: none;
-    border-radius: .5rem;
-    padding: .5rem;
-    color: rgb(107, 114, 128);
-}
+.menu-button {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  background-color: transparent;
+  margin: 0.5rem 0 0 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: rgb(107, 114, 128);
 
-button svg {
+  svg {
     width: 1.5rem;
+  }
 }
-
-
- 
-
 
 .container {
-    h1 {
-        font-family: Pacifico, cursive;
-        font-size: 2.25rem;
-        line-height: 4rem;
-        font-weight: 700;
-        color: transparent;
-        background-image: linear-gradient(to right, #F29724, #ca1023c4, #c90519);
-        background-clip: text;
-    }
+  @media screen and (min-width: 762px) {
+    margin-left: 260px;
+  }
 
-    select {
-        width: 100%;
-        padding: .5rem;
-        border-color: rgb(209, 213, 219);
-        border-radius:.5rem;
+  h1 {
+    font-family: Pacifico, cursive;
+    font-size: 2.25rem;
+    line-height: 4rem;
+    font-weight: 700;
+    color: transparent;
+    background-image: linear-gradient(to right, #f29724, #ca1023c4, #c90519);
+    background-clip: text;
+  }
+
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    border-color: rgb(209, 213, 219);
+    border-radius: 0.5rem;
+    background-color: #fff;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .category-buttons {
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: 1px solid rgba(75, 85, 99, 0.233);
+      color: rgba(75, 85, 99, 0.669);
+      background-color: transparent;
+      border-radius: 50px;
+      margin-right: 10px;
+
+      &.active {
+        background-color: #000 !important;
+        color: white;
+      }
+
+      &:hover {
         background-color: #fff;
-        font-size:.875rem;
-        margin-bottom: 1rem;
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
     }
-    
+  }
+
+  .card {
+    button {
+      background-color: rgb(13, 171, 121);
+      color: #fff;
+    }
+  }
 }
 
-button.active {
-    background-color: #007bff; 
-    color: white;  
-    border: 1px solid #007bff;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    cursor: pointer;
-    background-color: #f1f1f1;
-  }
-  
-  button:hover {
-    background-color: #ddd;
-  }
-  
-  .meal-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .meal-card {
-    text-align: center;
-  }
-  
-  .meal-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
+.meal-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
 
+.meal-card {
+  text-align: center;
+}
 
+.meal-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
 
-
-  nav {
-    position: fixed;
-    inset: 0;
-    background-color: rgba($color: #000000, $alpha: 0.5);
-    z-index: 999;
-
-    .nav-box {
-      background-color: $bg-color; 
-      width: 300px !important;
+@media screen and (min-width: 762px) {
+  .menu-button {
+    display: none !important;
   }
-  }
-
-
-  @media screen and (min-width: 762px) {
-    .menu-button {
-      display: none !important;
-      
-    }
-    nav {
-      position: static;
-      display: inline-block !important;
-      background-color: #F9FAFB; 
-      .nav-box {
-        width: 300px !important;
-        background-color: transparent;
-    }
-    }
-    
-  }
-  
-  
+}
