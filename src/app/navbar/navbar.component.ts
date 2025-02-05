@@ -7,14 +7,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  
 @Input() isVisible: boolean = false;
 @Output() visibilityChange = new EventEmitter<boolean>(); 
 
-
-
-closeNav(e:MouseEvent, navBox:HTMLDivElement): void {
-  if (e.target !== navBox) {
-    this.visibilityChange.emit(false);
-  }
+closeNav(e: MouseEvent, navBox: HTMLDivElement): void {
+  this.visibilityChange.emit(false);
 }
+
+
 }

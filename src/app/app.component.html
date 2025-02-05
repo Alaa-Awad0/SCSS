@@ -1,2 +1,7 @@
-<app-meals></app-meals>
+@if (isNotFound) {
+    <router-outlet></router-outlet>
+}@else {
+    <app-meals></app-meals>
+}
+
 <app-footer></app-footer>

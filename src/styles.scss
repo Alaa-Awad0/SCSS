@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-$main-color: rgb(5, 150, 105);
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+
+$main-color: rgb(11, 131, 93);
 $second-color: #F29724;
 $bg-color: #F4F2EE;
 
+
 body {
     background-color: $bg-color;
-    color: $main-color;
     font-family: cursive;
 }
