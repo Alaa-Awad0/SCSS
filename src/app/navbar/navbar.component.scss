@@ -26,17 +26,13 @@ nav {
     }
   }
 
-  li:first-child {
-    @extend li;
+  .active {
     background-color: #f29724;
     box-shadow: 0 10px 15px -3px #fdba74, 0 4px 6px -4px #fdba74;
 
     .nav-link {
       color: #fff;
       font-weight: bold !important;
-      svg {
-        width: 18px !important;
-      }
     }
   }
 }
