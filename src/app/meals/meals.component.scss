@@ -86,15 +86,17 @@
   }
 
   h1 {
-    transform: scale();
     font-family: Pacifico, cursive;
     font-size: 2.25rem;
     line-height: 4rem;
     font-weight: 700;
     color: transparent;
     background-image: linear-gradient(to right, #F29724, #ca1023c4, #c90519);
+    -webkit-background-clip: text;
     background-clip: text;
-  }
+    -webkit-text-fill-color: transparent; 
+}
+
 
   select {
     width: 100%;
@@ -157,7 +159,7 @@
     h3 {
       font-size: 1rem;
       line-height: 1.5rem;
-      color: &main-color;
+      color: rgb(11, 131, 93);
     }
   
     &:hover {

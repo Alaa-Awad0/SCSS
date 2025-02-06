@@ -9,7 +9,7 @@ export const routes: Routes = [
 
 
   { path: '', redirectTo: 'meals', pathMatch: 'full' },
-  { path: 'meals', component: MealsComponent },
+  { path: 'meals', component: MealsComponent, title: 'Meals' },
  { path: '**', component: NotFoundComponent, title: 'Not Found'} 
 
 ];
