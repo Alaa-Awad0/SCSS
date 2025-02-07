@@ -63,7 +63,7 @@
               <img class="w-100" [src]="meal.strMealThumb" [alt]="meal.strMeal" />
             </div>
             <div class="card-body d-flex flex-column text-center">
-              <h4 class="card-title fw-bold fs-5">{{ meal.strMeal }}</h4>
+              <h4 class="card-title fw-bold fs-5">{{ getFirstTwoWords(meal.strMeal) }}</h4>
               <h3>
                 @if (meal.strArea) {
                 <svg

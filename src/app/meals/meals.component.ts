@@ -86,6 +86,10 @@ export class MealsComponent implements OnInit {
     this.updateMealsByCategory(category);
   }
 
+  getFirstTwoWords(name: string): string {
+    return name.split(' ').slice(0, 2).join(' ');
+  }
+  
   openNav(): void {
     this.isVisible = true;
   }
