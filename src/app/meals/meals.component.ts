@@ -16,8 +16,6 @@ export class MealsComponent implements OnInit {
   areas: string[] = [];
   selectedCategory: string = 'All';
   isLoading: boolean = true; 
-  idMeal: any;
-
 
   constructor(private mealsService: MealsService) {}
 
