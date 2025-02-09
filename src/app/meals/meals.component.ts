@@ -2,10 +2,11 @@ import { Component, OnInit, inject } from '@angular/core';
 import { MealsService } from '../meals.service';
 import { IMeal } from '../imeal';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-meals',
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, FooterComponent],
   templateUrl: './meals.component.html',
   styleUrl: './meals.component.scss',
 })
@@ -14,8 +15,7 @@ export class MealsComponent implements OnInit {
   meals: IMeal[] = [];
   areas: string[] = [];
   selectedCategory: string = 'All';
-  isVisible: boolean = false;
-  isLoading: boolean = true; // تحديد اللودر عند تحميل البيانات لأول مرة
+  isLoading: boolean = true; 
   idMeal: any;
 
 
@@ -42,7 +42,7 @@ export class MealsComponent implements OnInit {
     this.mealsService.getAllMeals().subscribe({
       next: (res) => {
         setTimeout(() => {
-          this.meals = res.meals; // تصحيح الخطأ هنا
+          this.meals = res.meals; 
           this.isLoading = false;
         }, 1500);
       },
@@ -90,15 +90,5 @@ export class MealsComponent implements OnInit {
     return name.split(' ').slice(0, 2).join(' ');
   }
   
-  openNav(): void {
-    this.isVisible = true;
-  }
-
-  updateVisibility(value: boolean): void {
-    this.isVisible = value;
-  }
-
-  closeNav(): void {
-    this.isVisible = false;
-  }
+  
 }

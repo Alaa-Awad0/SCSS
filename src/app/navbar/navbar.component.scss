@@ -1,13 +1,27 @@
+.menu-button {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  background-color: transparent;
+  margin: 0.5rem 0 0 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: rgb(107, 114, 128);
+
+  svg {
+    width: 1.5rem;
+  }
+}
+
 nav {
   position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  .nav-box {
-    width: 260px;
-    height: 100%;
-    background-color: #fff;
-  }
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  width: 260px;
+  left: -260px;
+  transition: left 0.3s ease;
+  background-color: #fff;
 
   li {
     cursor: pointer;
@@ -20,12 +34,17 @@ nav {
 
     .nav-link {
       color: #000;
+
       svg {
         width: 18px !important;
       }
     }
   }
 
+  &.open {
+  left: 0;
+}
+  
   .active {
     background-color: #f29724;
     box-shadow: 0 10px 15px -3px #fdba74, 0 4px 6px -4px #fdba74;
@@ -35,6 +54,14 @@ nav {
       font-weight: bold !important;
     }
   }
+
+}
+
+.layer {
+  position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
 }
 
 @media screen and (min-width: 762px) {

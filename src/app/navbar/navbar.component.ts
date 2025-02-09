@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -8,13 +8,27 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  
-@Input() isVisible: boolean = false;
-@Output() visibilityChange = new EventEmitter<boolean>(); 
 
-closeNav(e: MouseEvent, navBox: HTMLDivElement): void {
-  this.visibilityChange.emit(false);
-}
+  isOpen: boolean = false; 
 
+  @ViewChild('navbar') navbar!: ElementRef; 
+  @ViewChild('toggleButton') toggleButton!: ElementRef; 
+
+  toggleNavbar() {
+    this.isOpen = !this.isOpen; 
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    if (
+      this.isOpen &&
+      this.navbar &&
+      !this.navbar.nativeElement.contains(event.target) &&
+      this.toggleButton &&
+      !this.toggleButton.nativeElement.contains(event.target)
+    ) {
+      this.isOpen = false;
+    }
+  }
 
 }
