@@ -20,7 +20,7 @@ export class MealsComponent implements OnInit {
 
   constructor(
     private mealsService: MealsService,
-    private activateRoute: ActivatedRoute
+    private _ActivatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -39,15 +39,16 @@ export class MealsComponent implements OnInit {
 
     this.fetchAllMeals();
 
-    this.activateRoute.paramMap.subscribe((params) => {
-      const categoryName = params.get('categoryName');
-
-      if (categoryName) {
-        this.updateMealsByCategory(categoryName);
-      } else {
-        this.updateMealsByCategory('All');
-      }
-    });
+    this._ActivatedRoute.paramMap.subscribe((params) => {
+  const categoryName = params.get('categoryName');
+  this.mealsService.getMealsByCategory(categoryName || 'All').subscribe((res) => {
+    this.meals = res.meals;
+    this.selectedCategory = categoryName || 'All';
+    this.isLoading = false;
+  }
+  
+  );
+});
   }
 
   fetchAllMeals(): void {
