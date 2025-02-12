@@ -13,8 +13,7 @@
         <button
           class="btn"
           (click)="updateMealsByCategory('All')"
-          routerLink="/category/All"
-          routerLinkActive="active"
+          [class.active]="selectedCategory === 'All'"
         >
           All
         </button>
@@ -22,8 +21,7 @@
         <button
           class="btn"
           (click)="updateMealsByCategory(category.strCategory)"
-          [routerLink]="['/category/', category.strCategory]"
-          routerLinkActive="active"
+          [class.active]="selectedCategory === category.strCategory"
         >
           {{ category.strCategory }}
         </button>
