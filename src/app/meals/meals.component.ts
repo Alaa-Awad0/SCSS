@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { MealsService } from '../meals.service';
 import { IMeal } from '../imeal';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from "../footer/footer.component";
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { FooterComponent } from '../footer/footer.component';
+import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-meals',
@@ -16,39 +16,52 @@ export class MealsComponent implements OnInit {
   meals: IMeal[] = [];
   areas: string[] = [];
   selectedCategory: string = 'All';
-  isLoading: boolean = true; 
+  isLoading: boolean = true;
 
-  constructor(private mealsService: MealsService) {}
+  constructor(
+    private mealsService: MealsService,
+    private activateRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.mealsService.getCategories().subscribe({
       next: (res) => {
         setTimeout(() => {
           this.categories = res.categories;
-          this.isLoading = false; 
+          this.isLoading = false;
         }, 1500);
       },
       error: (err) => {
         console.error('Error fetching categories', err),
-        this.isLoading = false;
-      }
+          (this.isLoading = false);
+      },
     });
 
     this.fetchAllMeals();
+
+    this.activateRoute.paramMap.subscribe((params) => {
+      const categoryName = params.get('categoryName');
+
+      if (categoryName) {
+        this.updateMealsByCategory(categoryName);
+      } else {
+        this.updateMealsByCategory('All');
+      }
+    });
   }
 
   fetchAllMeals(): void {
     this.mealsService.getAllMeals().subscribe({
       next: (res) => {
         setTimeout(() => {
-          this.meals = res.meals; 
+          this.meals = res.meals;
           this.isLoading = false;
         }, 1500);
       },
       error: (err) => {
         console.error('Error fetching categories', err),
-        this.isLoading = false;
-      }
+          (this.isLoading = false);
+      },
     });
   }
 
@@ -64,8 +77,8 @@ export class MealsComponent implements OnInit {
         },
         error: (err) => {
           console.error('Error fetching categories', err),
-          this.isLoading = false;
-        }
+            (this.isLoading = false);
+        },
       });
     }
   }
@@ -88,6 +101,4 @@ export class MealsComponent implements OnInit {
   getFirstTwoWords(name: string): string {
     return name.split(' ').slice(0, 2).join(' ');
   }
-  
-  
 }
