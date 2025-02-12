@@ -3,10 +3,11 @@ import { MealsService } from '../meals.service';
 import { IMeal } from '../imeal';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from "../footer/footer.component";
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-meals',
-  imports: [NavbarComponent, FooterComponent],
+  imports: [NavbarComponent, FooterComponent, RouterLink, RouterLinkActive],
   templateUrl: './meals.component.html',
   styleUrl: './meals.component.scss',
 })

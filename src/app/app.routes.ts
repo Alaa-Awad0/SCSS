@@ -3,13 +3,19 @@ import { Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
-  // { path: '', redirectTo: 'meals', pathMatch: 'full' },
-  // { path: 'meals', component: MealsComponent, title: 'Meals' },
-  // { path: '**', component: NotFoundComponent,, pathMatch: 'full' },
-
-
-  { path: '', redirectTo: 'meals', pathMatch: 'full' },
-  { path: 'meals', component: MealsComponent, title: 'Meals' },
- { path: '**', component: NotFoundComponent, title: 'Not Found'} 
-
+  { path: '', redirectTo: 'category/All', pathMatch: 'full' },
+  {
+    path: 'category',
+    component: MealsComponent,
+    title: 'Meals',
+    children: [
+      { path: '', redirectTo: 'All', pathMatch: 'full' },
+      {
+        path: ':categoryName',
+        component: MealsComponent,
+        title: 'Meals',
+      },
+    ],
+  },
+  { path: '**', component: NotFoundComponent, title: 'Not Found' },
 ];
