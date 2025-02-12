@@ -39,12 +39,11 @@ export class MealsComponent implements OnInit {
 
     this.fetchAllMeals();
 
-//     this._ActivatedRoute.paramMap.subscribe((params) => {
+//  this._ActivatedRoute.paramMap.subscribe((params) => {
 //   const categoryName = params.get('categoryName');
 //   this.mealsService.getMealsByCategory(categoryName || 'All').subscribe((res) => {
 //     this.meals = res.meals;
 //     this.selectedCategory = categoryName || 'All';
-//     this.isLoading = false;
 //   }
   
 //   );
@@ -102,4 +101,6 @@ export class MealsComponent implements OnInit {
   getFirstTwoWords(name: string): string {
     return name.split(' ').slice(0, 2).join(' ');
   }
+
+
 }

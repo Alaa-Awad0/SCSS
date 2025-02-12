@@ -93,7 +93,10 @@
   }
 
   .category-buttons {
-    button {
+    li {
+      list-style: none;
+      display: inline-block;
+      cursor:  pointer !important;
       padding: 10px 20px;
       margin: 5px;
       border: 1px solid rgba(75, 85, 99, 0.233);
